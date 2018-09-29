@@ -9,6 +9,6 @@ class Booking < ApplicationRecord
 
     private
         def seats_left
-            @show.available_seats = @show.available_seats - self.available_seats
+            @show.available_seats = @show.available_seats - self.no_of_seats
 end                
 end
