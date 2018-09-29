@@ -4,7 +4,8 @@ class Audi < ApplicationRecord
 	has_many :tickets
 	has_many :movies, through: :shows
 	
-  validates :no, presence: true
-  validates :no_of_seats, presence: true
+  validates :num ,presence: true, numericality: { only_integer: true }
+  validates :no_of_seats, presence: true, numericality: { only_integer: true }
+  validates :theater_id, presence: true, numericality: { only_integer: true }
                     
 end

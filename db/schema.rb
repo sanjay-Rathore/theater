@@ -15,12 +15,6 @@ ActiveRecord::Schema.define(version: 2018_09_27_125720) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "Bookings", force: :cascade do |t|
-    t.string "no_of_seats"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "Theaters", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -30,8 +24,17 @@ ActiveRecord::Schema.define(version: 2018_09_27_125720) do
   end
 
   create_table "audis", force: :cascade do |t|
-    t.string "no"
-    t.string "no_of_seats"
+    t.integer "num"
+    t.integer "no_of_seats"
+    t.integer "theater_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.integer "no_of_seats"
+    t.integer "show_id"
+    t.integer "user_id"
     t.integer "theater_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -45,10 +48,10 @@ ActiveRecord::Schema.define(version: 2018_09_27_125720) do
   end
 
   create_table "shows", force: :cascade do |t|
-    t.string "time"
-    t.string "available_seats"
-    t.integer "audi_id"
+    t.integer "time"
+    t.integer "available_seats"
     t.integer "movie_id"
+    t.integer "audi_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -71,7 +74,7 @@ ActiveRecord::Schema.define(version: 2018_09_27_125720) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "age"
+    t.integer "age"
     t.string "phone_no"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

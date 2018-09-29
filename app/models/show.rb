@@ -1,7 +1,10 @@
 class Show < ApplicationRecord
 	has_many :bookings
 	belongs_to :audi
-  validates_format_of :time, with: /\A\d{2}:\d{2}\z
-     validates :available_seats, presence: true , :numericality => true  
-                  
-end
+	belongs_to :movie
+  validates :time, presence: true	
+  validates :movie_id, presence: true, numericality: { only_integer: true }
+  validates :audi_id, presence: true, numericality: { only_integer: true }
+  validates :available_seats,presence: true, numericality: { only_integer: true }
+   
+ end
