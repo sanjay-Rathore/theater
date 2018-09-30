@@ -1,4 +1,4 @@
-class Booking < ActiveRecord::Migration[5.2]
+class CreateBookings < ActiveRecord::Migration[5.2]
   def change
   	create_table :bookings do |t|
   		t.integer :no_of_seats

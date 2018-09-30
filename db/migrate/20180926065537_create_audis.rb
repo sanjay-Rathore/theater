@@ -1,4 +1,4 @@
-class Audi < ActiveRecord::Migration[5.2]
+class CreateAudis < ActiveRecord::Migration[5.2]
   def change
   	 create_table :audis do |t|
       t.integer :num
