@@ -8,6 +8,7 @@ class Booking < ApplicationRecord
     validate :seat_limit
     after_create :available_seats
     private
+<<<<<<< HEAD
     def seat_limit
         @show=Show.find(self.show_id)
        if no_of_seats > @show.available_seats
@@ -21,3 +22,9 @@ class Booking < ApplicationRecord
     end 
     
 end
+=======
+        def seats_left
+            @show.available_seats = @show.available_seats - self.no_of_seats
+end                
+end
+>>>>>>> 8ba6085e623ddb3315aadd02012f1e53aa6db3f9
